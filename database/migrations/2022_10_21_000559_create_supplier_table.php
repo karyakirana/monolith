@@ -15,6 +15,14 @@ return new class extends Migration
     {
         Schema::create('supplier', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('supplier_jenis_id');
+            $table->string('nama');
+            $table->text('alamat')->nullable();
+            $table->string('telepon')->nullable();
+            $table->string('npwp')->nullable();
+            $table->string('email')->nullable();
+            $table->text('keterangan');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

@@ -15,6 +15,9 @@ return new class extends Migration
     {
         Schema::create('supplier_jenis', function (Blueprint $table) {
             $table->id();
+            $table->string('jenis');
+            $table->text('keterangan');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

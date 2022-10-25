@@ -13,16 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('stock_keluar', function (Blueprint $table) {
+        Schema::create('stock_mutasi', function (Blueprint $table) {
             $table->id();
             $table->string('active_cash');
             $table->string('kode');
-            $table->string('stockable_keluar_type')->nullable();
-            $table->unsignedBigInteger('stockable_keluar_id')->nullable();
-            $table->unsignedBigInteger('supplier_id')->nullable();
-            $table->string('kondisi');
-            $table->unsignedBigInteger('gudang_id');
-            $table->date('tgl_keluar');
+            $table->string('jenis_mutasi');
+            $table->unsignedBigInteger('gudang_asal_id');
+            $table->unsignedBigInteger('gudang_tujuan_id');
+            $table->date('tgl_mutasi');
             $table->unsignedBigInteger('user_id');
             $table->text('keterangan')->nullable();
             $table->timestamps();
@@ -36,6 +34,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('stock_keluar_table');
+        Schema::dropIfExists('stock_mutasi');
     }
 };

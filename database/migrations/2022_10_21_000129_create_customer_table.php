@@ -15,6 +15,13 @@ return new class extends Migration
     {
         Schema::create('customer', function (Blueprint $table) {
             $table->id();
+            $table->string('kode');
+            $table->string('nama');
+            $table->double('diskon',2)->default(0)->nullable();
+            $table->string('telepon')->nullable();
+            $table->text('alamat')->nullable();
+            $table->text('keterangan')->nullable();
+            $table->softDeletes();
             $table->timestamps();
         });
     }

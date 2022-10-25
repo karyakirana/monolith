@@ -15,6 +15,10 @@ return new class extends Migration
     {
         Schema::create('produk_kategori', function (Blueprint $table) {
             $table->id();
+            $table->string('kode_lokal');
+            $table->string('nama');
+            $table->text('keterangan');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

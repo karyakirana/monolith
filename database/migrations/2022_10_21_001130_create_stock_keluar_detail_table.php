@@ -15,6 +15,9 @@ return new class extends Migration
     {
         Schema::create('stock_keluar_detail', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('stock_keluar_id');
+            $table->unsignedBigInteger('produk_id');
+            $table->bigInteger('jumlah');
             $table->timestamps();
         });
     }

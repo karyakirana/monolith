@@ -13,18 +13,24 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('stock_keluar', function (Blueprint $table) {
+        Schema::create('penjualan_retur', function (Blueprint $table) {
             $table->id();
             $table->string('active_cash');
             $table->string('kode');
-            $table->string('stockable_keluar_type')->nullable();
-            $table->unsignedBigInteger('stockable_keluar_id')->nullable();
-            $table->unsignedBigInteger('supplier_id')->nullable();
             $table->string('kondisi');
             $table->unsignedBigInteger('gudang_id');
-            $table->date('tgl_keluar');
+            $table->unsignedBigInteger('customer_id');
             $table->unsignedBigInteger('user_id');
+            $table->date('tgl_nota');
+            $table->string('jenis_bayar');
+            $table->date('tgl_tempo')->nullable();
+            $table->string('status_bayar');
+            $table->bigInteger('total_barang');
+            $table->bigInteger('ppn')->nullable();
+            $table->bigInteger('biaya_lain')->nullable();
+            $table->bigInteger('total_bayar');
             $table->text('keterangan')->nullable();
+            $table->softDeletes();
             $table->timestamps();
         });
     }
@@ -36,6 +42,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('stock_keluar_table');
+        Schema::dropIfExists('penjualan_retur');
     }
 };

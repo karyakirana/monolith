@@ -13,11 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('stock_opname_detail', function (Blueprint $table) {
+        Schema::create('penjualan_retur_detail', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('stock_opname_id');
+            $table->unsignedBigInteger('penjualan_retur_id');
             $table->unsignedBigInteger('produk_id');
+            $table->bigInteger('harga');
             $table->bigInteger('jumlah');
+            $table->double('diskon', 2);
+            $table->bigInteger('sub_total');
             $table->timestamps();
         });
     }
@@ -29,6 +32,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('stock_opname_detail');
+        Schema::dropIfExists('penjualan_retur_detail');
     }
 };

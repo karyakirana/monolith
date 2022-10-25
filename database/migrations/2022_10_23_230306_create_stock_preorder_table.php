@@ -13,19 +13,17 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('produk', function (Blueprint $table) {
+        Schema::create('stock_preorder', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('kategori_id');
-            $table->unsignedBigInteger('kategori_harga_id');
+            $table->string('active_cash');
             $table->string('kode');
-            $table->string('kode_lokal');
-            $table->string('penerbit');
-            $table->string('nama');
-            $table->integer('hal');
-            $table->string('cover');
-            $table->bigInteger('harga');
-            $table->integer('size');
-            $table->text('deskripsi');
+            $table->date('tgl_preorder');
+            $table->date('tgl_selesai')->nullable();
+            $table->string('status');
+            $table->unsignedBigInteger('supplier_id')->nullable();
+            $table->unsignedBigInteger('user_id');
+            $table->bigInteger('total_barang');
+            $table->text('keterangan')->nullable();
             $table->softDeletes();
             $table->timestamps();
         });
@@ -38,6 +36,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('produk');
+        Schema::dropIfExists('stock_preorder');
     }
 };

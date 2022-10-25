@@ -15,6 +15,15 @@ return new class extends Migration
     {
         Schema::create('pegawai', function (Blueprint $table) {
             $table->id();
+            $table->string('kode');
+            $table->unsignedBigInteger('user_id');
+            $table->string('nama');
+            $table->string('gender');
+            $table->string('jabatan');
+            $table->string('telepon')->nullable();
+            $table->text('alamat')->nullable();
+            $table->text('keterangan')->nullable();
+            $table->softDeletes();
             $table->timestamps();
         });
     }

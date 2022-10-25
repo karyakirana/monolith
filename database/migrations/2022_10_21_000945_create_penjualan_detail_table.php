@@ -15,6 +15,12 @@ return new class extends Migration
     {
         Schema::create('penjualan_detail', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('penjualan_id');
+            $table->unsignedBigInteger('produk_id');
+            $table->bigInteger('harga');
+            $table->bigInteger('jumlah');
+            $table->double('diskon', 2);
+            $table->bigInteger('sub_total');
             $table->timestamps();
         });
     }
